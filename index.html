@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>HOANGNAMDC</title>
+
+<style>
+body { margin:0; font-family:Arial; }
+
+/* MENU */
+.menu {
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#ff6a00;
+  padding:15px;
+  text-align:center;
+  z-index:1000;
+}
+.menu a {
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+.menu a:hover {
+  text-decoration:underline;
+}
+
+/* SLIDER */
+.slider {
+  margin-top:60px;
+  height:400px;
+  overflow:hidden;
+  position:relative;
+}
+.slide {
+  position:absolute;
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  opacity:0;
+  transition:1s;
+}
+.slide.active { opacity:1; }
+
+/* TITLE */
+h2 {
+  text-align:center;
+  margin:20px 0;
+}
+
+/* GALLERY */
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  padding:20px;
+}
+
+.card {
+  border-radius:10px;
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+}
+
+.card img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  transition:0.3s;
+}
+
+.card:hover img {
+  transform:scale(1.05);
+}
+
+/* TEXT OVERLAY */
+.card p {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  margin:0;
+  padding:10px;
+  background:rgba(0,0,0,0.5);
+  color:white;
+  text-align:center;
+}
+
+/* FOOTER */
+.footer {
+  background:#333;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+  <a href="#">TRANG CHỦ</a>
+  <a href="tranh-tuong.html">TRANH TƯỜNG</a>
+  <a href="phu-dieu.html">PHÙ ĐIÊU</a>
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+  <img class="slide active" src="tranh1.jpg">
+  <img class="slide" src="tranh2.jpg">
+  <img class="slide" src="tranh3.jpg">
+</div>
+
+<h2>TÁC PHẨM</h2>
+
+<!-- GALLERY -->
+<div class="gallery">
+
+  <!-- TRANH TƯỜNG -->
+  <div class="card" onclick="location.href='tranh-tuong.html'">
+    <img src="tranh1.jpg">
+    <p>Tranh tường</p>
+  </div>
+
+  <!-- PHÙ ĐIÊU -->
+  <div class="card" onclick="location.href='phu-dieu.html'">
+    <img src="tranh7.jpg">
+    <p>Phù điêu</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  HOANGNAMDC - Zalo: 0345518158 | Facebook: Trần Nam
+</div>
+
+<!-- SCRIPT -->
+<script>
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+setInterval(()=>{
+  slides[index].classList.remove('active');
+  index = (index+1)%slides.length;
+  slides[index].classList.add('active');
+},3000);
+</script>
+
+</body>
+</html>

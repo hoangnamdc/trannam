@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Phù điêu - HOANGNAMDC</title>
+
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+}
+
+/* MENU */
+.menu {
+  background:#ff6a00;
+  padding:15px;
+  text-align:center;
+}
+.menu a {
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* TITLE */
+h2 {
+  text-align:center;
+  margin:20px;
+}
+
+/* PINTEREST GALLERY */
+.gallery {
+  column-count: 4;
+  column-gap: 15px;
+  padding:20px;
+}
+
+.gallery img {
+  width:100%;
+  margin-bottom:15px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.gallery img:hover {
+  transform:scale(1.03);
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .gallery { column-count: 3; }
+}
+@media(max-width:700px){
+  .gallery { column-count: 2; }
+}
+@media(max-width:500px){
+  .gallery { column-count: 1; }
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+}
+
+.lightbox img {
+  max-width:90%;
+  max-height:90%;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu">
+  <a href="index.html">Trang chủ</a>
+  <a href="#">Phù điêu</a>
+</div>
+
+<h2>PHÙ ĐIÊU HOANGNAMDC</h2>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <img src="tranh7.jpg">
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <img id="big-img">
+</div>
+
+<script>
+let images = document.querySelectorAll('.gallery img');
+let lightbox = document.getElementById('lightbox');
+let bigImg = document.getElementById('big-img');
+
+images.forEach(img => {
+  img.onclick = () => {
+    bigImg.src = img.src;
+    lightbox.style.display = 'flex';
+  }
+});
+
+lightbox.onclick = () => {
+  lightbox.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
